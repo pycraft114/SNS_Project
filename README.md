@@ -23,15 +23,14 @@
 
 
 ### DB
-
-- <USER>
+USER
 ```
   id VARCHAR(24) PRIMARY KEY
   pw VARCHAR(16)
   img VARCHAR(100)
   name VARCHAR(16)
 ```
-- <POST>
+POST
 ```
   userId VARCHAR(24)
   postTime DATETIME
