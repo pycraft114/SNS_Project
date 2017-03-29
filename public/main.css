@@ -1,0 +1,66 @@
+div,header,ul,li,section,nav,footer,h1,h2,h3,h4,h4,h6,p,span,input,button {margin:0;padding:0;}
+li { list-style: none; }
+a { text-decoration: none;}
+
+* {
+  outline: 1px solid red;
+}
+
+.bulletin {
+  width: 50%;
+}
+
+.bulletin-content {
+  border-radius: 5px;
+  height: 100px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.uploadButton {
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+  margin-left:10px;
+  margin-bottom:17px;
+}
+
+.contents {
+  width: 50%;
+}
+
+.content-container {
+  padding: 0 .5rem;
+}
+
+.content-container .header {
+  position: relative;
+}
+
+.content-container > div {
+  margin-bottom: .5rem;
+}
+
+.content-container > div:last-child {
+  margin-bottom: 0;
+}
+
+.content-container .header span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.content-container .header span img {
+  width: 32px;
+  height: 32px;
+}
+
+.header-menu {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.footer div {
+  display: inline-block;
+}

@@ -5,33 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SNS_Project</title>
     <link rel="stylesheet" href="main.css">
+    <script src="https://use.fontawesome.com/6ae61e7117.js"></script>
   </head>
   <body>
 
-    <section class="content-container">
-      <div class="header">
-        <span><img src="" alt=""></span>
-        <span><h6>{id}</h6></span>
-        <span>{time}</span>
-        <div class="header-menu">
-          V
-        </div>
-      </div>
+    <div class="bulletin">
+      <input type="text" class="bulletin-content" value="오늘 어떠신가요?">
+      <button type="button" name="button" class="uploadButton">upload</button>
+    </div>
 
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-
-      <div class="footer">
-        <div class="like">
-          Like
+    <div class="contents">
+      <section class="content-container">
+        <div class="header">
+          <span><img src="images/overwatch.png" alt="profile image"></span>
+          <span><h4>나는박찬우다</h4></span>
+          <span>2017-11-02 / 10:21</span>
+          <div class="header-menu">
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+          </div>
         </div>
 
-        <div class="like-count">
-          {like-count}
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
-      </div>
-    </section>
+
+        <div class="footer">
+          <div class="like">
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"> 좋아요</i>
+          </div>
+
+          <div class="like-count">
+            {like-count}
+          </div>
+        </div>
+      </section>
+    </div>
 
     <script src="main.js" charset="utf-8"></script>
   </body>
