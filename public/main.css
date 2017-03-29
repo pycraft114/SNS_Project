@@ -4,34 +4,65 @@ li { list-style: none; }
 a { text-decoration: none;}
 
 * {
-  outline: 1px solid red;
+  1outline: 1px solid red;
 }
 
+.main-wrap {
+  padding: auto;
+}
+
+.headers {
+  1width: 50%;
+  margin-top: 1rem;
+
+}
 .bulletin {
-  width: 50%;
+  background-color: lightgray;
+  border: 1px solid gray;
+  padding: 1.5rem 1rem;
+  border-radius: 3px;
 }
 
 .bulletin-content {
   border-radius: 5px;
+
   height: 100px;
-  margin-top: 40px;
+
   width: 100%;
+  box-sizing: border-box;
+  font-size : 1.3rem;
 }
 
 .uploadButton {
   border-radius: 5px;
   height: 30px;
   width: 100%;
-  margin-left:10px;
-  margin-bottom:17px;
+  box-sizing: border-box;
+  background-color: #3498db;
+  text-align: center;
+  color: white;
+  line-height: 30px;
+  cursor: pointer;
+  1display:none;
 }
 
+.content-wrap {
+  margin-top: 4rem;
+}
 .contents {
-  width: 50%;
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin-bottom: 2rem;
+  background-color: lightgray;
+  1width: 50%;
+}
+
+.contents:last-child {
+  margin-bottom: 0;
 }
 
 .content-container {
-  padding: 0 .5rem;
+  padding: 0 1rem;
 }
 
 .content-container .header {
@@ -39,11 +70,11 @@ a { text-decoration: none;}
 }
 
 .content-container > div {
-  margin-bottom: .5rem;
+  margin-top: .5rem;
 }
 
 .content-container > div:last-child {
-  margin-bottom: 0;
+  margin-bottom: .5rem;
 }
 
 .content-container .header span {
@@ -60,6 +91,15 @@ a { text-decoration: none;}
   position: absolute;
   top: 0px;
   right: 0px;
+}
+
+.content {
+  background-color: white;
+  border-radius: 3px;
+}
+
+.content > p {
+  padding: 1rem;
 }
 
 .footer div {
@@ -100,7 +140,7 @@ a { text-decoration: none;}
 	font-size: 3rem;
 	font-weight: bold
 }
-.login span,input {
+.login span, .login input {
 	margin : 10px;
 }
 .loginTxt {
