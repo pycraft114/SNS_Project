@@ -1,3 +1,4 @@
+
 div,header,ul,li,section,nav,footer,h1,h2,h3,h4,h4,h6,p,span,input,button {margin:0;padding:0;}
 li { list-style: none; }
 a { text-decoration: none;}
@@ -63,4 +64,57 @@ a { text-decoration: none;}
 
 .footer div {
   display: inline-block;
+}
+
+.top svg{
+	margin-left: 20px;
+	margin-top: 4px;
+}
+.top {
+	height:60px;
+	background-color: #3498db;
+}
+.login {
+	margin-top: 50px;
+}
+.loginInput {
+	width:570px;
+	height: 45px;
+	font-size: 30px;
+}
+.wrap{
+	position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+	min-width:600px;
+	margin:0 auto;
+	width:600px;
+}
+.loginTitle {
+	color:#2c3e50;
+	background-color: #3498db;
+	margin : 30px auto;
+}
+.loginTitle > span {
+	font-size: 3rem;
+	font-weight: bold
+}
+.login span,input {
+	margin : 10px;
+}
+.loginTxt {
+	font-size: 1.2rem;
+	heigh: 30px;
+}
+.login button {
+	font-size: 1rem;
+	color:white;
+	font-weight: bold;
+	background-color: #3498db;
+	border-color: #3498db;
+	border-radius: 10px;
+	float:right;
+	width: 80px;
+	height: 50px;
 }
