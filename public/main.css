@@ -1,3 +1,111 @@
+
+div,header,ul,li,section,nav,footer,h1,h2,h3,h4,h4,h6,p,span,input,button {margin:0;padding:0;}
+li { list-style: none; }
+a { text-decoration: none;}
+
+* {
+  1outline: 1px solid red;
+}
+
+.main-wrap {
+  padding: auto;
+}
+
+.bulletin-wrap {
+  1width: 50%;
+  margin-top: 1rem;
+
+}
+.bulletin {
+  background-color: lightgray;
+  border: 1px solid gray;
+  padding: 1.5rem 1rem;
+  border-radius: 3px;
+}
+
+.bulletin-content {
+  border-radius: 5px;
+
+  height: 100px;
+
+  width: 100%;
+  box-sizing: border-box;
+  font-size : 1.3rem;
+}
+
+.uploadButton {
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #3498db;
+  text-align: center;
+  color: white;
+  line-height: 30px;
+  cursor: pointer;
+  1display:none;
+}
+
+.post-wrap {
+  margin-top: 4rem;
+}
+.posts {
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin-bottom: 2rem;
+  background-color: lightgray;
+  1width: 50%;
+}
+
+.posts:last-child {
+  margin-bottom: 0;
+}
+
+.post-container {
+  padding: 0 1rem;
+}
+
+.post-container .header {
+  position: relative;
+}
+
+.post-container > div {
+  margin-top: .5rem;
+}
+
+.post-container > div:last-child {
+  margin-bottom: .5rem;
+}
+
+.post-container .header span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.post-container .header span img {
+  width: 32px;
+  height: 32px;
+}
+
+.header-menu {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.post-content {
+  background-color: white;
+  border-radius: 3px;
+}
+
+.post-content > p {
+  padding: 1rem;
+}
+
+.footer div {
+  display: inline-block;
+}
+
 .top svg{
 	margin-left: 20px;
 	margin-top: 4px;
@@ -32,7 +140,7 @@
 	font-size: 3rem;
 	font-weight: bold
 }
-.login span,input{
+.login span, .login input {
 	margin : 10px;
 }
 .join span,input {
