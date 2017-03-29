@@ -21,19 +21,21 @@
 
 
 
+
 ### DB
 
 - <USER>
-
- id VARCHAR(24) PRIMARY KEY
- pw VARCHAR(16)
- img VARCHAR(100)
- name VARCHAR(16)
-
+```
+  id VARCHAR(24) PRIMARY KEY
+  pw VARCHAR(16)
+  img VARCHAR(100)
+  name VARCHAR(16)
+```
 - <POST>
-
- userId VARCHAR(24)
-   dateTime DATE
-   postNum INT(10000) PRIMARY KEY AUTO_INCREMENT
-   likeNum INT(100)
-   content TEXT
+```
+  userId VARCHAR(24)
+  postTime DATETIME
+  postNum INT(10000) PRIMARY KEY AUTO_INCREMENT
+  likeNum INT(100)
+  content TEXT
+```
