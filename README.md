@@ -45,24 +45,26 @@
 ##### Backlog
 3.28 프로젝트 백로그 작성
 
-로그인,로그아웃 기능 ㅇ
+
+
 
 
 
 ### DB
-
-- <USER>
+USER
+```
   id VARCHAR(24) PRIMARY KEY
   pw VARCHAR(16)
   img VARCHAR(100)
   name VARCHAR(16)
-
-- <POST>
+```
+POST
+```
   userId VARCHAR(24)
   postTime DATETIME
-  postNum INT(10000) PRIMARY KEY AUTO_INCREMENT
-  likeNum INT(100)
+  postNum INT(10) PRIMARY KEY AUTO_INCREMENT
+  likeNum INT(5)
   content TEXT
-=======
-[Backlog](https://docs.google.com/spreadsheets/d/1nMgwXN6MQNQbCNf4bs4PR7NoABAu9KM9CY-XbmV8cmE/edit#gid=0)
+```
 
+[Backlog](https://docs.google.com/spreadsheets/d/1nMgwXN6MQNQbCNf4bs4PR7NoABAu9KM9CY-XbmV8cmE/edit#gid=0)
