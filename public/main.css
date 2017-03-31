@@ -7,6 +7,62 @@ a { text-decoration: none;}
   1outline: 1px solid red;
 }
 
+.modal {
+    /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 68px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    display:none;
+}
+
+.modal-bulletin-wrap {
+    1width: 50%;
+    margin-top: 1rem;
+    width:600px;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+.modal-bulletin {
+    background-color: lightgray;
+    border: 1px solid gray;
+    padding: 1.5rem 1rem;
+    border-radius: 3px;
+    z-index : 1;
+
+}
+
+.modal-bulletin-content {
+    border-radius: 5px;
+
+    height: 100px;
+
+    width: 100%;
+    box-sizing: border-box;
+    font-size : 1.3rem;
+}
+
+.modal-uploadButton {
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #3498db;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+    cursor: pointer;
+    display:none;
+}
+
 .main-wrap {
   padding: auto;
 }
@@ -16,12 +72,17 @@ a { text-decoration: none;}
   margin-top: 1rem;
 
 }
+
+
 .bulletin {
   background-color: lightgray;
   border: 1px solid gray;
   padding: 1.5rem 1rem;
   border-radius: 3px;
+  z-index : 1;
+
 }
+
 
 .bulletin-content {
   border-radius: 5px;
@@ -33,6 +94,7 @@ a { text-decoration: none;}
   font-size : 1.3rem;
 }
 
+
 .uploadButton {
   border-radius: 5px;
   height: 30px;
@@ -43,7 +105,7 @@ a { text-decoration: none;}
   color: white;
   line-height: 30px;
   cursor: pointer;
-  1display:none;
+  display:none;
 }
 
 .post-wrap {
