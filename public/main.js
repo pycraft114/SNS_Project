@@ -10,3 +10,15 @@ a.addEventListener("click", function(evt) {
 
   //console.log(evt.target);
 });
+
+
+var add = document.querySelector(".add");
+add.addEventListener("click", function(evt) {
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener("add", function(res) {
+    console.log("ok");
+    console.log(res.target.response);
+  });
+  xhr.open("POST", "http://localhost:3000/pull");
+  xhr.send();
+});

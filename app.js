@@ -32,9 +32,14 @@ app.get('/main', function(req, res) {
     if(err) throw err
 
     if(rows) {
-      return res.render('main.ejs', {'contents' : rows})
+      return res.render('main.ejs', {'id' : "test" , 'contents' : rows})
     } else {
       return res.render('main.ejs')
     }
   })
+})
+
+app.post('/pull', function(req, res) {
+  console.log('post pull')
+  res.json({'ok' : 'ok'})
 })
