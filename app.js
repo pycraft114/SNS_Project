@@ -1,4 +1,3 @@
-
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
@@ -36,12 +35,11 @@ app.use(flash())
 
 app.use(router)
 
-app.listen('3400', function() {
-  console.log('Server Start Port 3400!')
+app.listen('3000', function() {
+  console.log('Server Start Port 3000!')
 })
 
 app.get('/main', function(req, res) {
 	console.log(req.session.passport.user)
 	res.render('main.ejs', {'id': req.session.passport.user})
 })
-
