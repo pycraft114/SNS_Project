@@ -11,7 +11,7 @@ a { text-decoration: none;}
   padding: auto;
 }
 
-.headers {
+.bulletin-wrap {
   1width: 50%;
   margin-top: 1rem;
 
@@ -46,10 +46,10 @@ a { text-decoration: none;}
   1display:none;
 }
 
-.content-wrap {
+.post-wrap {
   margin-top: 4rem;
 }
-.contents {
+.posts {
   border: 1px solid gray;
   border-radius: 3px;
   margin-bottom: 2rem;
@@ -57,32 +57,32 @@ a { text-decoration: none;}
   1width: 50%;
 }
 
-.contents:last-child {
+.posts:last-child {
   margin-bottom: 0;
 }
 
-.content-container {
+.post-container {
   padding: 0 1rem;
 }
 
-.content-container .header {
+.post-container .header {
   position: relative;
 }
 
-.content-container > div {
+.post-container > div {
   margin-top: .5rem;
 }
 
-.content-container > div:last-child {
+.post-container > div:last-child {
   margin-bottom: .5rem;
 }
 
-.content-container .header span {
+.post-container .header span {
   display: inline-block;
   vertical-align: middle;
 }
 
-.content-container .header span img {
+.post-container .header span img {
   width: 32px;
   height: 32px;
 }
@@ -93,12 +93,12 @@ a { text-decoration: none;}
   right: 0px;
 }
 
-.content {
+.post-content {
   background-color: white;
   border-radius: 3px;
 }
 
-.content > p {
+.post-content > p {
   padding: 1rem;
 }
 
@@ -114,10 +114,10 @@ a { text-decoration: none;}
 	height:60px;
 	background-color: #3498db;
 }
-.login {
+.login, .join {
 	margin-top: 50px;
 }
-.loginInput {
+.loginInput, .joinInput {
 	width:570px;
 	height: 45px;
 	font-size: 30px;
@@ -131,23 +131,26 @@ a { text-decoration: none;}
 	margin:0 auto;
 	width:600px;
 }
-.loginTitle {
+.loginTitle, .joinTitle{
 	color:#2c3e50;
 	background-color: #3498db;
 	margin : 30px auto;
 }
-.loginTitle > span {
+.loginTitle > span, .joinTitle > span{
 	font-size: 3rem;
 	font-weight: bold
 }
 .login span, .login input {
 	margin : 10px;
 }
-.loginTxt {
+.join span,input {
+	margin : 10px;
+}
+.loginTxt, .joinTxt{
 	font-size: 1.2rem;
 	heigh: 30px;
 }
-.login button {
+.login button, .join button{
 	font-size: 1rem;
 	color:white;
 	font-weight: bold;
@@ -186,4 +189,6 @@ a { text-decoration: none;}
   top: 50px;
   left: 100px;
 
+.errMsg {
+	color:red;
 }
