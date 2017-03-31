@@ -59,3 +59,6 @@ app.post('/pull', function(req, res) {
   var query = connection.query('select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content from user u join post p on u.id = p.userId order by p.postTime desc limit 5;', function(err, rows) {
 
   })
+
+
+var a = 0
