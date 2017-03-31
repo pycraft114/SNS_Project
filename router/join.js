@@ -12,10 +12,10 @@ var flash = require('connect-flash')
 // DB SETTING
 var connection = mysql.createConnection({
 	host: '192.168.56.101',
-	port: 3306, 
+	port: 3306,
 	user: 'test',
 	password: 'pw1234',
-	database: 'snsdb' 
+	database: 'snsdb'
 });
 connection.connect();
 
@@ -27,7 +27,7 @@ router.get('/', function(req, res){
 	if(errMsg) msg = errMsg;
 
 	console.log('msg' + msg)
-	
+
 	res.render('join.ejs', {'msg':msg});
 
 
@@ -94,9 +94,3 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
-
-
-
