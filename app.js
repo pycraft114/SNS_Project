@@ -6,8 +6,8 @@ var mysql = require('mysql')
 var connection = mysql.createConnection({ // mysql에 사용에 관한 사용자 정보 객체 생성
   host : '192.168.56.101',
   port : 3306,
-  user : 'latilt',
-  password : 'tjfrud7130',
+  user : 'test',
+  password : 'pw1234',
   database : 'snsdb'
 })
 
@@ -24,7 +24,7 @@ app.listen('3000', function() {
 })
 
 app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/public/index.html')
+  res.sendFile(__dirname + '/public/main.html')
 })
 
 app.get('/main', function(req, res) {
@@ -40,6 +40,7 @@ app.get('/main', function(req, res) {
 })
 
 app.post('/pull', function(req, res) {
-  console.log('post pull')
-  res.json({'ok' : 'ok'})
+  var query = connection.query('select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content from user u join post p on u.id = p.userId order by p.postTime desc limit 5;', function(err, rows) {
+
+  })
 })
