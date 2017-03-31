@@ -4,7 +4,7 @@ var router = express.Router();
 var path = require('path');
 var join = require('./join')
 var login = require('./login')
-//var logout = require('./logout')
+var logout = require('./logout')
 
 //url routing
 router.get('/', function(req, res){
@@ -13,7 +13,7 @@ router.get('/', function(req, res){
 
 router.use('/join', join)
 router.use('/login', login)
-//router.use('/logout', logout)
+router.use('/logout', logout)
 
 
 
