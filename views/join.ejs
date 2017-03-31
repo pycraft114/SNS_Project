@@ -44,7 +44,7 @@
 			var name = document.getElementsByName('name')[0].value;
 			var password = document.getElementsByName('password')[0].value;
 			var passwordRe = document.getElementsByName('passwordRe')[0].value;
-			if(id === "" || password === "" || name === "") errMsg.innerHTML = "빈칸이 있음";
+			if(id.length === 0 || password.length === 0 || name.length === 0) errMsg.innerHTML = "빈칸이 있음";
 			else if(password !== passwordRe) errMsg.innerHTML ="비밀번호가 일치하지 않음";
 			else sendAjax('/join', {'id':id, 'name':name, 'password':password});
 		});
