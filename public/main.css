@@ -161,3 +161,6 @@ a { text-decoration: none;}
 	width: 80px;
 	height: 50px;
 }
+.errMsg{
+	font-color:red;
+}
