@@ -70,7 +70,6 @@ app.post('/pull', function(req, res) {
       return res.json(rows)
     }
     
-
   })
 })
 
