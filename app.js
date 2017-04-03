@@ -7,7 +7,7 @@ var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 var session = require('express-session')
 var flash = require('connect-flash')
-var config = require('./config.js')
+var config = require('./config')
 
 var connection = mysql.createConnection({
   host : config.db.host,

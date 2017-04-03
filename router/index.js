@@ -8,7 +8,6 @@ var logout = require('./logout')
 
 //url routing
 router.get('/', function(req, res){
-	//res.sendFile(path.join(__dirname, '../public/main.html'))
 	res.render('login.ejs',{'msg':""});
 
 });
@@ -16,8 +15,6 @@ router.get('/', function(req, res){
 router.use('/join', join)
 router.use('/login', login)
 router.use('/logout', logout)
-
-
 
 module.exports = router;
 
