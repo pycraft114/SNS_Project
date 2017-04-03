@@ -5,10 +5,25 @@ a.addEventListener("click", function(evt) {
   if(evt.target.classList.contains("fa-angle-down")) {
     console.log("v표시" + evt.target);
   } else if(evt.target.classList.contains("fa-thumbs-o-up")) {
-    console.log("좋아요" + evt.target);
-  }
+    console.log(evt.target.parentElement.nextElementSibling);
+    var postNum = evt.target.closest(".posts").id;
+    var data = {"postNum" : postNum};
+    data = JSON.stringify(data);
+    console.log(data);
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener("load", function(res) {
+      var json = JSON.parse(res.target.response);
 
-  //console.log(evt.target);
+      if(!json.result) return;
+
+      var likeCount = evt.target.parentElement.nextElementSibling;
+      likeCount.innerHTML = likeCount.innerHTML*1 + 1;
+    });
+
+    xhr.open("POST", "http://localhost:3000/like");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(data);
+  }
 });
 
 var count = 1;

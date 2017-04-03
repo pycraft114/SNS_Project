@@ -63,7 +63,6 @@ app.get('/main', function(req, res) {
 app.post('/pull', function(req, res) {
   var queryString = 'select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content, postNum from USER u join post p on u.id = p.userId where u.id = ? order by p.postTime desc limit ?, 5;'
   
-  console.log(req.body)
   var query = connection.query(queryString, [req.user, req.body.count * 5], function(err, rows) {
     if(err) throw err
 
@@ -72,5 +71,19 @@ app.post('/pull', function(req, res) {
     }
     
 
+  })
+})
+
+app.post('/like', function(req, res) {
+  var queryString = 'update post set likeNum = likeNum + 1 where postNum = ?;'
+
+  var query = connection.query(queryString, [req.body.postNum], function(err, rows) {
+    if(err) throw err
+
+    if(rows.affectedRows === 0) {
+      return res.json({'result' : false})
+    } else {
+      return res.json({'result' : true})
+    }
   })
 })
