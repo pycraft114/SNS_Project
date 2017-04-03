@@ -7,13 +7,14 @@ var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 var session = require('express-session')
 var flash = require('connect-flash')
+var config = require('./config.js')
 
-var connection = mysql.createConnection({ // mysql에 사용에 관한 사용자 정보 객체 생성
-  host : '192.168.56.101',
-  port : '3306',
-  user : 'test',
-  password : 'pw1234',
-  database : 'snsdb'
+var connection = mysql.createConnection({
+  host : config.db.host,
+  port : config.db.port,
+  user : config.db.user,
+  password : config.db.password,
+  database : config.db.database
 })
 
 connection.connect()
@@ -35,7 +36,7 @@ app.use(flash())
 
 app.use(router)
 
-app.listen('3000', function() {
+app.listen(config.server.port, function() {
   console.log('Server Start Port 3000!')
 })
 
