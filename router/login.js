@@ -32,12 +32,10 @@ router.get('/', function(req, res){
 });
 
 passport.serializeUser(function(user, done){
-	console.log('passport session save:', user.id)
 	done(null, user.id)
 })
 
 passport.deserializeUser(function(id, done){
-	console.log('passport session get id:', id)
 	done(null, id);
 })
 
@@ -47,11 +45,9 @@ passport.use('local-login', new LocalStrategy({
 		passReqToCallback: true
 	},function(req, id, password, done){
 		var query = connection.query('select pw from USER where id=?', [id], function(err, rows){
-			if(err) return done(err);
-			console.log(rows.pw)
+			if(err) return done(err)
 			if(rows.length){
 				if(password === rows[0].pw){  
-				console.log('비밀번호 일치')
 				return done(null, {'id':id})
 				} else {
 				return done(null, false, {message: '비밀번호 다름'})
@@ -71,7 +67,6 @@ router.post('/', passport.authenticate('local-login', {
 */
 router.post('/', function(req, res, next){
 	passport.authenticate('local-login', function(err, user, info){
-		console.log(req);
 		if(err) res.status(500).json(err);
 		if(!user) return res.status(401).json(info.message);
 

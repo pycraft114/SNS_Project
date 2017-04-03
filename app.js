@@ -44,23 +44,33 @@ app.get('/', function(req, res) {
 })
 
 app.get('/main', function(req, res) {
-  var query = connection.query('select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content from USER u join post p on u.id = p.userId order by p.postTime desc limit 5;', function(err, rows) {
+  var queryString = 'select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content, postNum from USER u join post p on u.id = p.userId where u.id = ? order by p.postTime desc limit ?, 5;'
+  
+  if(!req.user) return res.redirect('/login')
+  
+  var query = connection.query(queryString, [req.user, 0], function(err, rows) {
     if(err) throw err
 
     if(rows) {
-
       return res.render('main.ejs', {'id' : req.user, 'contents' : rows})
     } else {
+      console.log('no')
       return res.render('main.ejs')
     }
   })
 })
 
 app.post('/pull', function(req, res) {
-  var query = connection.query('select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content from USER u join post p on u.id = p.userId order by p.postTime desc limit 5;', function(err, rows) {
+  var queryString = 'select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content, postNum from USER u join post p on u.id = p.userId where u.id = ? order by p.postTime desc limit ?, 5;'
+  
+  console.log(req.body)
+  var query = connection.query(queryString, [req.user, req.body.count * 5], function(err, rows) {
     if(err) throw err
 
-    res.json({ok : "ok"})
+    if(rows) {
+      return res.json(rows)
+    }
+    
 
   })
 })
