@@ -40,8 +40,33 @@ app.listen('3400', function() {
   console.log('Server Start Port 3400!')
 })
 
+app.listen('3000', function() {
+  console.log('Server Start Port 3000!')
+})
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/public/main.html')
+})
+
 app.get('/main', function(req, res) {
-	console.log(req.session.passport.user)
-	res.render('main.ejs', {'id': req.session.passport.user})
+  var query = connection.query('select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content from USER u join post p on u.id = p.userId order by p.postTime desc limit 5;', function(err, rows) {
+    if(err) throw err
+
+    if(rows) {
+
+      return res.render('main.ejs', {'id' : req.user, 'contents' : rows})
+    } else {
+      return res.render('main.ejs')
+    }
+  })
+})
+
+app.post('/pull', function(req, res) {
+  var query = connection.query('select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content from USER u join post p on u.id = p.userId order by p.postTime desc limit 5;', function(err, rows) {
+    if(err) throw err
+
+    res.json({ok : "ok"})
+
+  })
 })
 

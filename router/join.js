@@ -25,12 +25,8 @@ router.get('/', function(req, res){
 	var msg = "";
 	var errMsg = req.flash('error')
 	if(errMsg) msg = errMsg;
-
 	console.log('msg' + msg)
-	
-	res.render('join', {'msg':msg});
-
-
+	res.render('join.ejs', {'msg':msg});
 });
 
 passport.serializeUser(function(user, done){
