@@ -27,11 +27,19 @@ a.addEventListener("click", function(evt) {
 });
 
 var count = 1;
+<<<<<<< HEAD
 
 window.addEventListener('scroll', function(evt) {
   
   if(window.scrollY !== document.body.clientHeight - window.innerHeight) return; 
 
+=======
+
+window.addEventListener('scroll', function(evt) {
+  
+  if(window.scrollY !== document.body.clientHeight - window.innerHeight) return; 
+
+>>>>>>> feature
   var data = {"count" : count};
   data = JSON.stringify(data);
   var xhr = new XMLHttpRequest();
