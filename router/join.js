@@ -21,12 +21,9 @@ connection.connect();
 
 
 router.get('/', function(req, res){
-	console.log(req.flash('error'))
 	var msg = "";
 	var errMsg = req.flash('error')
 	if(errMsg) msg = errMsg;
-
-	console.log('msg' + msg)
 
 	res.render('join.ejs', {'msg':msg});
 
@@ -34,12 +31,10 @@ router.get('/', function(req, res){
 });
 
 passport.serializeUser(function(user, done){
-	console.log('passport session save:', user.id)
 	done(null, user.id)
 })
 
 passport.deserializeUser(function(id, done){
-	console.log('passport session get id:', id)
 	done(null, id);
 })
 
@@ -52,14 +47,12 @@ passport.use('local-join', new LocalStrategy({
 			if(err) return done(err);
 
 			if(rows.length){
-				console.log('existed user')
 				return done(null, false, {message: '사용중인 아이디임'})
 			} else {
 				var sql = {id: id, pw:password, name:req.body.name}
 				var query = connection.query('insert into USER set ?', sql, function(err, rows){
 					if(err) throw err;
 
-					console.log('ok')
 					return done(null, {'id':id});
 				})
 			}
@@ -74,7 +67,6 @@ router.post('/', passport.authenticate('local-join', {
 )*/
 router.post('/', function(req, res, next){
 	passport.authenticate('local-join', function(err, user, info){
-		console.log(req);
 		if(err) res.status(500).json(err);
 		if(!user) return res.status(401).json(info.message);
 
