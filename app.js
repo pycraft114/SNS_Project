@@ -36,16 +36,8 @@ app.use(flash())
 
 app.use(router)
 
-app.listen('3400', function() {
-  console.log('Server Start Port 3400!')
-})
-
 app.listen('3000', function() {
   console.log('Server Start Port 3000!')
-})
-
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/public/main.html')
 })
 
 app.get('/main', function(req, res) {
