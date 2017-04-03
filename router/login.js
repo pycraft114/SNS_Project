@@ -8,15 +8,16 @@ var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 var session = require('express-session')
 var flash = require('connect-flash')
+var config = require('../config.js')
 
-// DB SETTING
 var connection = mysql.createConnection({
-	host: '192.168.56.101',
-	port: 3306, 
-	user: 'test',
-	password: 'pw1234',
-	database: 'snsdb' 
-});
+  host : config.db.host,
+  port : config.db.port,
+  user : config.db.user,
+  password : config.db.password,
+  database : config.db.database
+})
+
 connection.connect();
 
 
