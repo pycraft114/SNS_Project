@@ -1,5 +1,5 @@
 
-div,header,ul,li,section,nav,footer,h1,h2,h3,h4,h4,h6,p,span,input,button {margin:0;padding:0;}
+body,div,header,ul,li,section,nav,footer,h1,h2,h3,h4,h4,h6,p,span,input,button {margin:0;padding:0;}
 li { list-style: none; }
 a { text-decoration: none;}
 

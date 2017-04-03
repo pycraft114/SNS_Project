@@ -8,13 +8,14 @@ var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 var session = require('express-session')
 var flash = require('connect-flash')
+var config = require('./config.js')
 
-var connection = mysql.createConnection({ // mysql에 사용에 관한 사용자 정보 객체 생성
-  host : '192.168.56.101',
-  port : '3306',
-  user : 'test',
-  password : 'pw1234',
-  database : 'snsdb'
+var connection = mysql.createConnection({
+  host : config.db.host,
+  port : config.db.port,
+  user : config.db.user,
+  password : config.db.password,
+  database : config.db.database
 })
 
 connection.connect()
@@ -36,29 +37,51 @@ app.use(flash())
 
 app.use(router)
 
-app.listen('3000', function() {
+app.listen(config.server.port, function() {
   console.log('Server Start Port 3000!')
 })
 
 app.get('/main', function(req, res) {
-  var query = connection.query('select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content from USER u join post p on u.id = p.userId order by p.postTime desc limit 5;', function(err, rows) {
+  var queryString = 'select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content, postNum from USER u join post p on u.id = p.userId where u.id = ? order by p.postTime desc limit ?, 5;'
+  
+  if(!req.user) return res.redirect('/login')
+  
+  var query = connection.query(queryString, [req.user, 0], function(err, rows) {
     if(err) throw err
 
     if(rows) {
-
       return res.render('main.ejs', {'id' : req.user, 'contents' : rows})
     } else {
+      console.log('no')
       return res.render('main.ejs')
     }
   })
 })
 
 app.post('/pull', function(req, res) {
-  var query = connection.query('select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content from USER u join post p on u.id = p.userId order by p.postTime desc limit 5;', function(err, rows) {
+  var queryString = 'select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content, postNum from USER u join post p on u.id = p.userId where u.id = ? order by p.postTime desc limit ?, 5;'
+  
+  var query = connection.query(queryString, [req.user, req.body.count * 5], function(err, rows) {
     if(err) throw err
 
-    res.json({ok : "ok"})
+    if(rows) {
+      return res.json(rows)
+    }
+    
+  })
+})
 
+app.post('/like', function(req, res) {
+  var queryString = 'update post set likeNum = likeNum + 1 where postNum = ?;'
+
+  var query = connection.query(queryString, [req.body.postNum], function(err, rows) {
+    if(err) throw err
+
+    if(rows.affectedRows === 0) {
+      return res.json({'result' : false})
+    } else {
+      return res.json({'result' : true})
+    }
   })
 })
 
