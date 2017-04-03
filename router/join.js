@@ -28,7 +28,7 @@ router.get('/', function(req, res){
 
 	console.log('msg' + msg)
 	
-	res.render('join.ejs', {'msg':msg});
+	res.render('join', {'msg':msg});
 
 
 });

@@ -26,7 +26,7 @@ router.get('/', function(req, res){
 	var errMsg = req.flash('error')
 	if(errMsg) msg = errMsg;
 	
-	res.render('login.ejs', {'msg':msg});
+	res.render('login', {'msg':msg});
 
 
 });
