@@ -5,6 +5,7 @@ var path = require('path');
 var join = require('./join')
 var login = require('./login')
 var logout = require('./logout')
+var upload = require('./upload')
 
 //url routing
 router.get('/', function(req, res){
@@ -16,6 +17,7 @@ router.get('/', function(req, res){
 router.use('/join', join)
 router.use('/login', login)
 router.use('/logout', logout)
+router.use('/upload',upload)
 
 
 
