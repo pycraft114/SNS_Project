@@ -13,14 +13,8 @@ function Bulletin() {
 }
 
 Bulletin.prototype = {
-    slideDownButton() {
+    slideDownButton:function() {
         this.modalUploadButton.slideDown();
-    },
-    giveOpacity(){
-
-    },
-    sendContent(){
-
     }
 };
 
@@ -51,4 +45,17 @@ bulletin.modal.on("click",function(evt){
         bulletin.modal.css("display","none");
         bulletin.modalUploadButton.css("display","none");
     }
+});
+
+bulletin.modalUploadButton.on("click",function(evt){
+    if(!!bulletin.modalContent){
+        var data = {};
+        var content = bulletin.modalContent.val();
+
+        data.content = content;
+
+        $.post('upload',data,function(){
+            location.reload(true);
+        })
+    }else{alert("plese fill in the blank")}
 });

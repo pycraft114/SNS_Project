@@ -1,3 +1,4 @@
+
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
@@ -7,7 +8,7 @@ var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 var session = require('express-session')
 var flash = require('connect-flash')
-var config = require('./config')
+var config = require('./config.js')
 
 var connection = mysql.createConnection({
   host : config.db.host,
@@ -38,10 +39,6 @@ app.use(router)
 
 app.listen(config.server.port, function() {
   console.log('Server Start Port 3000!')
-})
-
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/public/main.html')
 })
 
 app.get('/main', function(req, res) {

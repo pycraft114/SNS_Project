@@ -7,16 +7,26 @@ var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 var session = require('express-session')
 var flash = require('connect-flash')
-var config = require('../config')
+var multer = require('multer')
+var config = require('../config.js')
 
-// DB SETTING
+var storage = multer.diskStorage({
+	destination:function(req, file, callback){
+		callback(null, 'public/images')
+	},
+	filename:function(req, file, callback){
+		callback(null, file.fieldname + '-' + Date.now() + "." + file.mimetype.split('/')[1])
+	}
+})
+var upload = multer({storage: storage})
+
 var connection = mysql.createConnection({
-	host: config.db.host,
-	port: config.db.port,
-	user: config.db.user,
-	password: config.db.password,
-	database: config.db.database
-});
+  host : config.db.host,
+  port : config.db.port,
+  user : config.db.user,
+  password : config.db.password,
+  database : config.db.database
+})
 connection.connect();
 
 
@@ -24,10 +34,7 @@ router.get('/', function(req, res){
 	var msg = "";
 	var errMsg = req.flash('error')
 	if(errMsg) msg = errMsg;
-
 	res.render('join.ejs', {'msg':msg});
-
-
 });
 
 passport.serializeUser(function(user, done){
@@ -49,7 +56,13 @@ passport.use('local-join', new LocalStrategy({
 			if(rows.length){
 				return done(null, false, {message: '사용중인 아이디임'})
 			} else {
-				var sql = {id: id, pw:password, name:req.body.name}
+				if(req.file === undefined){
+					var filePath = '/images/defalut.jpg';
+				}else{
+					var filePath = req.file.path;
+					filePath = filePath.replace(/public/, '');
+				}
+				var sql = {id: id, pw:password, name:req.body.name, img:filePath}
 				var query = connection.query('insert into USER set ?', sql, function(err, rows){
 					if(err) throw err;
 
@@ -59,13 +72,8 @@ passport.use('local-join', new LocalStrategy({
 		})
 	}
 ));
-/*
-router.post('/', passport.authenticate('local-join', {
-	successRedirect: '/main',
-	failureRedirect: '/join',
-	failureFlash: true })
-)*/
-router.post('/', function(req, res, next){
+
+router.post('/', upload.single('file'), function(req, res, next){
 	passport.authenticate('local-join', function(err, user, info){
 		if(err) res.status(500).json(err);
 		if(!user) return res.status(401).json(info.message);
