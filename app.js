@@ -87,3 +87,17 @@ app.post('/like', function(req, res) {
     }
   })
 })
+
+app.post('/delete', function(req, res) {
+  var queryString = 'delete from post where postNum = ?;'
+
+  var query = connection.query(queryString, [req.body.postNum], function(err, rows) {
+    if(err) throw err
+
+    if(rows.affectedRows === 0) {
+      return res.json({'result' : false})
+    } else {
+      return res.json({'result' : true})
+    }
+  })
+})
