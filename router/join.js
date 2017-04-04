@@ -27,7 +27,6 @@ var connection = mysql.createConnection({
   password : config.db.password,
   database : config.db.database
 })
-
 connection.connect();
 
 
@@ -95,9 +94,3 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
-
-
-

@@ -74,18 +74,27 @@ app.post('/pull', function(req, res) {
 app.post('/like', function(req, res) {
   var queryString = 'update post set likeNum = likeNum + 1 where postNum = ?;'
 
-    console.log("like")
-
   var query = connection.query(queryString, [req.body.postNum], function(err, rows) {
     if(err) throw err
 
     if(rows.affectedRows === 0) {
-      console.log("false")
       return res.json({'result' : false})
     } else {
-      console.log("true")
       return res.json({'result' : true})
     }
   })
 })
 
+app.post('/delete', function(req, res) {
+  var queryString = 'delete from post where postNum = ?;'
+
+  var query = connection.query(queryString, [req.body.postNum], function(err, rows) {
+    if(err) throw err
+
+    if(rows.affectedRows === 0) {
+      return res.json({'result' : false})
+    } else {
+      return res.json({'result' : true})
+    }
+  })
+})

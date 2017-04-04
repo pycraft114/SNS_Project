@@ -3,7 +3,6 @@ var app = express();
 var router = express.Router();
 var path = require('path');
 var mysql = require('mysql');
-
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 var session = require('express-session')
@@ -17,7 +16,6 @@ var connection = mysql.createConnection({
   password : config.db.password,
   database : config.db.database
 })
-
 connection.connect();
 
 
