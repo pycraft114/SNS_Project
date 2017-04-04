@@ -2,3 +2,4 @@ node_modules/
 public/.idea/
 .idea/
 config.js
+.DS_Store
