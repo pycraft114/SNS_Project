@@ -1,5 +1,5 @@
 
-div,header,ul,li,section,nav,footer,h1,h2,h3,h4,h4,h6,p,span,input,button {margin:0;padding:0;}
+body,div,header,ul,li,section,nav,footer,h1,h2,h3,h4,h4,h6,p,span,input,button {margin:0;padding:0;}
 li { list-style: none; }
 a { text-decoration: none;}
 
@@ -24,7 +24,7 @@ a { text-decoration: none;}
 
 .modal-bulletin-wrap {
     1width: 50%;
-    margin-top: 1rem;
+    margin-top: 7px;
     width:600px;
     margin-left:auto;
     margin-right:auto;
@@ -248,7 +248,7 @@ a { text-decoration: none;}
 
 .logincheck {
   position: absolute;
-  top: 50px;
+  top: 20px;
   left: 100px;
 }
 
