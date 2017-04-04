@@ -1,3 +1,4 @@
+
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
@@ -38,10 +39,6 @@ app.use(router)
 
 app.listen(config.server.port, function() {
   console.log('Server Start Port 3000!')
-})
-
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/public/main.html')
 })
 
 app.get('/main', function(req, res) {
@@ -91,3 +88,4 @@ app.post('/like', function(req, res) {
     }
   })
 })
+
