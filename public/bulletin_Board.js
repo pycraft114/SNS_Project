@@ -37,6 +37,7 @@ var bulletin = new Bulletin();
 bulletin.bulletinWrap.on("click", function() {
     bulletin.modal.css("display","block");
     bulletin.slideDownButton();
+    bulletin.modalContent.focus();
 });
 
 bulletin.modal.on("click",function(evt){
