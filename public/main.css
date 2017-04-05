@@ -7,6 +7,10 @@ a { text-decoration: none;}
   1outline: 1px solid red;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 .modal {
     /* Hidden by default */
     position: absolute; /* Stay in place */
@@ -16,10 +20,10 @@ a { text-decoration: none;}
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0, 0, 0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
     display:none;
+    overflow:hidden;
 }
 
 .modal-bulletin-wrap {
