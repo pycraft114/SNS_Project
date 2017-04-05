@@ -11,6 +11,10 @@ body.modal-open {
     overflow: hidden;
 }
 
+textarea{
+    resize:none;
+}
+
 .modal {
     /* Hidden by default */
     position: absolute; /* Stay in place */
