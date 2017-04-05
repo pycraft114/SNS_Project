@@ -36,7 +36,9 @@ var bulletin = new Bulletin();
 
 bulletin.bulletinWrap.on("click", function() {
     bulletin.modal.css("display","block");
+    bulletin.body.css("overflow","hidden");
     bulletin.slideDownButton();
+    bulletin.modalContent.focus();
 });
 
 bulletin.modal.on("click",function(evt){
@@ -44,6 +46,7 @@ bulletin.modal.on("click",function(evt){
     if(evt.target.parentNode.className !== "modal-bulletin"){
         bulletin.modal.css("display","none");
         bulletin.modalUploadButton.css("display","none");
+        bulletin.body.css("overflow","auto");
     }
 });
 
