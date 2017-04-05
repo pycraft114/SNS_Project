@@ -205,12 +205,12 @@ a { text-decoration: none;}
 .login span, .login input {
 	margin : 10px;
 }
-.join span,input {
+.join span, .join input {
 	margin : 10px;
 }
 .loginTxt, .joinTxt{
 	font-size: 1.2rem;
-	heigh: 30px;
+	height: 30px;
 }
 .login button, .join button{
 	font-size: 1rem;
@@ -254,4 +254,16 @@ a { text-decoration: none;}
 
 .errMsg {
 	color:red;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 180px;
+  height: 40px;
+  line-height: 40px;
+  background-color: white;
+  box-shadow: 0 0 0.5em black;
+  padding-left: 1rem;
 }

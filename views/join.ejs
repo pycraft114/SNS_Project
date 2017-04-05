@@ -28,6 +28,10 @@
 					<span class="joinTxt">비밀번호확인</span><br>
 					<input class="pw joinInput" type="password" name="passwordRe">
 				</div>
+				<div class="upImg">
+					<span class="joinTxt">프로필사진</span>
+					<input id="inputFile" type="file">
+				</div>
 				<hr>
 				<button class="joinBtn">가입신청</button>
 			
@@ -39,38 +43,40 @@
 	
 	var errMsg = document.querySelector('.errMsg');
 		document.querySelector('.joinBtn').addEventListener('click', function(){
-	
+			
+			var uploadFile = document.querySelector('#inputFile').files[0];
 			var id = document.getElementsByName('id')[0].value;
 			var name = document.getElementsByName('name')[0].value;
 			var password = document.getElementsByName('password')[0].value;
 			var passwordRe = document.getElementsByName('passwordRe')[0].value;
+
 			if(id.length === 0 || password.length === 0 || name.length === 0) errMsg.innerHTML = "빈칸이 있음";
 			else if(password !== passwordRe) errMsg.innerHTML ="비밀번호가 일치하지 않음";
-			else sendAjax('/join', {'id':id, 'name':name, 'password':password});
+			else {
+				var formData = new FormData();
+				console.log(uploadFile)
+				formData.append('file',uploadFile);
+				formData.append('id',id);
+				formData.append('name',name);
+				formData.append('password',password);
+				sendAjax('/join', formData);
+			}
 		});
 
 		function sendAjax(url, data){
-			data = JSON.stringify(data);
 			var xhr = new XMLHttpRequest();
 			xhr.open('POST', url);
-			//서버로 json형태로 보낼경우 아래와 같이써준다
-			xhr.setRequestHeader('Content-Type', "application/json");
 			console.log(data);
 			xhr.send(data);
-			
 			xhr.addEventListener('load', function(){
 				var result = JSON.parse(xhr.responseText);
 				console.log(result)
 				if(result.id){ 
-					//resultDiv.innerHTML = "welcome, " + result.email + "!!"
 					window.location.href="/main";
 				}
 				else errMsg.innerHTML = result;
 			});
 		}
-		
-		
-
 	</script>
 </body>
 </html>

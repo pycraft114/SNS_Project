@@ -44,7 +44,7 @@
                 <span><h4><%= e.name %></h4></span>
                 <span><%= e.postTime %></span>
                 <div class="header-menu">
-                  <a href="#"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i></a>
                 </div>
               </div>
 
@@ -69,6 +69,10 @@
       
     </div>
 
+    <div class="menu" style="display:none">
+		<i class="fa fa-window-close" aria-hidden="true"> 게시물 삭제하기</i>
+    </div>
+
     <script type="template" id="postTemplate">
       <div id={id} class="posts">
         <section class="post-container">
@@ -77,7 +81,7 @@
             <span><h4>{name}</h4></span>
             <span>{postTime}</span>
             <div class="header-menu">
-              <a href="#"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i></a>
             </div>
           </div>
 

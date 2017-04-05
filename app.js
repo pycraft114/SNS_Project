@@ -1,3 +1,4 @@
+
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
@@ -40,10 +41,6 @@ app.listen(config.server.port, function() {
   console.log('Server Start Port 3000!')
 })
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/public/main.html')
-})
-
 app.get('/main', function(req, res) {
   var queryString = 'select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content, postNum from USER u join post p on u.id = p.userId where u.id = ? order by p.postTime desc limit ?, 5;'
   
@@ -77,16 +74,26 @@ app.post('/pull', function(req, res) {
 app.post('/like', function(req, res) {
   var queryString = 'update post set likeNum = likeNum + 1 where postNum = ?;'
 
-    console.log("like")
+  var query = connection.query(queryString, [req.body.postNum], function(err, rows) {
+    if(err) throw err
+
+    if(rows.affectedRows === 0) {
+      return res.json({'result' : false})
+    } else {
+      return res.json({'result' : true})
+    }
+  })
+})
+
+app.post('/delete', function(req, res) {
+  var queryString = 'delete from post where postNum = ?;'
 
   var query = connection.query(queryString, [req.body.postNum], function(err, rows) {
     if(err) throw err
 
     if(rows.affectedRows === 0) {
-      console.log("false")
       return res.json({'result' : false})
     } else {
-      console.log("true")
       return res.json({'result' : true})
     }
   })
