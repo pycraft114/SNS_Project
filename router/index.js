@@ -6,6 +6,10 @@ var join = require('./join')
 var login = require('./login')
 var logout = require('./logout')
 var upload = require('./upload')
+var deletePost = require('./delete')
+var like = require('./like')
+var pull = require('./pull')
+var main = require('./main')
 
 //url routing
 router.get('/', function(req, res){
@@ -17,6 +21,10 @@ router.use('/join', join)
 router.use('/login', login)
 router.use('/logout', logout)
 router.use('/upload',upload)
+router.use('/delete', deletePost)
+router.use('/like', like)
+router.use('/main', main)
+router.use('/pull', pull)
 
 module.exports = router;
 
