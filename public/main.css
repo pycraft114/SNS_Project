@@ -3,10 +3,6 @@ body,div,header,ul,li,section,nav,footer,h1,h2,h3,h4,h4,h6,p,span,input,button {
 li { list-style: none; }
 a { text-decoration: none;}
 
-* {
-  1outline: 1px solid red;
-}
-
 body.modal-open {
     overflow: hidden;
 }
@@ -31,12 +27,10 @@ textarea{
 }
 
 .modal-bulletin-wrap {
-    1width: 50%;
     margin-top: 7px;
     width:600px;
     margin-left:auto;
     margin-right:auto;
-
 }
 
 .modal-bulletin {
@@ -45,14 +39,11 @@ textarea{
     padding: 1.5rem 1rem;
     border-radius: 3px;
     z-index : 1;
-
 }
 
 .modal-bulletin-content {
     border-radius: 5px;
-
     height: 100px;
-
     width: 100%;
     box-sizing: border-box;
     font-size : 1.3rem;
@@ -76,9 +67,7 @@ textarea{
 }
 
 .bulletin-wrap {
-  1width: 50%;
   margin-top: 1rem;
-
 }
 
 
@@ -88,15 +77,12 @@ textarea{
   padding: 1.5rem 1rem;
   border-radius: 3px;
   z-index : 1;
-
 }
 
 
 .bulletin-content {
   border-radius: 5px;
-
   height: 100px;
-
   width: 100%;
   box-sizing: border-box;
   font-size : 1.3rem;
@@ -124,7 +110,6 @@ textarea{
   border-radius: 3px;
   margin-bottom: 2rem;
   background-color: lightgray;
-  1width: 50%;
 }
 
 .posts:last-child {
@@ -194,9 +179,9 @@ textarea{
 }
 .wrap{
 	position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 	min-width:600px;
 	margin:0 auto;
 	width:600px;
@@ -237,7 +222,6 @@ textarea{
   position: fixed;
   top: 100px;
   left: 50px;
-
   width: 50px;
   height: 50px;
 }
@@ -246,7 +230,6 @@ textarea{
   position: absolute;
   top: 25px;
   right: 25px;
-
   width: 50px;
   height: 25px;
   background-color: white;

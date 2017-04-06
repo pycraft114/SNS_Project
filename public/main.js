@@ -19,10 +19,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
       menu.style.display = "none";
       var parent = curNode.parentElement;
-      console.log(curNode);
       curNode.remove();
 
-      console.log(parent.childElementCount === 0);
       if(parent.childElementCount === 0) {
         parent.innerHTML = "<h2>포스트가 없습니다</h2>";
       }
@@ -94,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function(){
       postWrap.innerHTML = postWrapTemplate;
     }
 
-    util.sendAjax("POST", "/pull", data, fullingData, "application/json");
+    util.sendAjax("POST", "/pull" + window.location.pathname, data, fullingData, "application/json");
   });
 
 });

@@ -20,10 +20,11 @@ var connection = mysql.createConnection({
 
 connection.connect()
 
-router.post('/', function(req, res) {
+router.post('/:id', function(req, res) {
+  var id = req.params.id
   var queryString = 'select name, img, date_format(postTime, "%Y-%m-%d / %H:%i") as postTime, likeNum, content, postNum from USER u join post p on u.id = p.userId where u.id = ? order by p.postTime desc limit ?, 5;'
   
-  var query = connection.query(queryString, [req.user, req.body.count * 5], function(err, rows) {
+  var query = connection.query(queryString, [id, req.body.count * 5], function(err, rows) {
     if(err) throw err
 
     if(rows) {

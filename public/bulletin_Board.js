@@ -2,7 +2,6 @@
  * Created by chanwoopark on 2017. 3. 30..
  */
 
-
 function Bulletin() {
     this.body = $("body");
     this.modal = $(".modal");
@@ -16,23 +15,9 @@ Bulletin.prototype = {
     slideDownButton:function() {
         this.modalUploadButton.slideDown();
     }
-};
-
-//------------------------------------------
-/*bulletin.prototype = {
-    showNode : function(){
-        console.log(this.inputSpace);
-    }
-};
-
-bulletin.showNode(); */
-//-------------------------------------------
+}
 
 var bulletin = new Bulletin();
-
-//---------------------------------------------------------
-//bulletin.bulletinWrap.click(bulletin.slideDownButton);
-//---------------------------------------------------------
 
 bulletin.bulletinWrap.on("click", function() {
     bulletin.modal.css("display","block");

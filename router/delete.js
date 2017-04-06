@@ -23,6 +23,10 @@ connection.connect()
 router.post('/', function(req, res) {
   var queryString = 'delete from post where postNum = ?;'
 
+  if(!req.user) {
+    return res.json({'result' : false})
+  }
+
   var query = connection.query(queryString, [req.body.postNum], function(err, rows) {
     if(err) throw err
 
