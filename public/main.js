@@ -19,10 +19,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
       menu.style.display = "none";
       var parent = curNode.parentElement;
-      console.log(curNode);
       curNode.remove();
 
-      console.log(parent.childElementCount === 0);
       if(parent.childElementCount === 0) {
         parent.innerHTML = "<h2>포스트가 없습니다</h2>";
       }
