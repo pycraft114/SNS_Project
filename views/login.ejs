@@ -50,7 +50,7 @@
 				console.log(result)
 				if(result.id){ 
 					//resultDiv.innerHTML = "welcome, " + result.email + "!!"
-					window.location.href="/main";
+					window.location.href="/"+result.id;
 				}
 				else errMsg.innerHTML = result;
 			});

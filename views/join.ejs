@@ -72,7 +72,7 @@
 				var result = JSON.parse(xhr.responseText);
 				console.log(result)
 				if(result.id){ 
-					window.location.href="/main";
+					window.location.href="/" + result.id;
 				}
 				else errMsg.innerHTML = result;
 			});

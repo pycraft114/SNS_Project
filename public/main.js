@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function(){
       postWrap.innerHTML = postWrapTemplate;
     }
 
-    util.sendAjax("POST", "/pull", data, fullingData, "application/json");
+    util.sendAjax("POST", "/pull" + window.location.pathname, data, fullingData, "application/json");
   });
 
 });

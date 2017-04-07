@@ -15,7 +15,7 @@ Bulletin.prototype = {
     slideDownButton:function() {
         this.modalUploadButton.slideDown();
     }
-};
+}
 
 var bulletin = new Bulletin();
 
